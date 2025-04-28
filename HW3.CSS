@@ -1,0 +1,236 @@
+/*
+Name:Allan Vega
+Date Created:02/08/2025
+Date Last Modified:04/08/2025
+Version:1.0
+Description: This is the CSS file for the HW3
+*/
+header{
+    width: 100%;
+    background-color: rgba(123, 244, 248, 0.738);
+    padding: 10px;
+    text-align: center;
+ }
+ body
+ {
+    font-family: Arial, sans-serif;
+    background-color: #62b0ff;
+    color: #333;
+    margin: 0;
+    padding: 0
+ }
+ form{
+    flex-grow: 2;
+ }
+                       
+ h1, h2 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    margin-bottom:20px;
+  }
+ main{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+   margin-bottom: 20px;
+ }
+ .image{
+    text-align: left;
+    border-color: #333;
+ }
+ .td1
+ {
+    text-align:center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+ }
+ th{
+    text-align:center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:bold;
+    padding: 10px;
+  }
+ footer
+ { width: 100%;
+   background-color: rgba(123, 244, 248, 0.738);
+   text-align: center;
+
+ }
+ #footer
+ {
+    text-align:center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+ }
+ label{
+    text-align:left;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+    margin-bottom: 8px;
+    display: block;
+ }
+ input{
+    text-align:left;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+ }
+ textarea{
+    text-align:left;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+    padding: 8px;
+    width: 100%;
+    margin: 5px 0;
+    height: 125px;
+ }
+ #todays
+ {
+    text-align:center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+    margin-right:15px;
+ }
+ p{
+    text-align:center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+ }
+ 
+ 
+ .center {
+    display: block;
+    margin: 0 auto;
+ }
+ form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: #f9f9f9;
+ }
+ .error {
+    color: red;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+ }
+ .pword-message
+ {
+    text-align: right; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;   
+    position: relative;
+    left: 100px;   
+    background: transparent;
+    padding: 10PX;
+    border-spacing: 2PX;
+    border-color: #333;
+    border-radius: 20px;
+ }
+ #review {
+    margin-top: 5px;
+ }
+ table {
+    tr.output,
+    td.output
+    {
+        width: 500px;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-spacing: 2px;
+        border-radius: 20px;
+        border-color: #333;
+    }
+    td.output
+    {
+        width: 500px;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-spacing: 2px;
+    }
+ }
+ #alert-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #333;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+ }
+ #alert-content {
+   background-color: red;
+   border-radius: 10px;
+   width: 50%;
+   height: 100px;
+   margin: auto;
+   margin-top: 20px;
+   padding: 10px;
+   text-align: center;
+ }
+ #alert-content h4
+ {
+   color: white;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-weight: normal;
+   margin: 0;
+   padding: 10px; 
+ }
+ #close-alert {
+   background-color: #ffffff;
+   border-width: 1px;
+   border-style: solid;
+   color: black;
+   border-color: #333;
+   font-size: 16px;
+   font-weight: bold;
+   height: 50px;
+   width: 100px;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-top: 10px;
+   text-align: center;
+   font-family: Arial, sans-serif;
+ }
+ .pword-message {
+   text-align: right;
+   font-family: Arial, sans-serif;
+   font-weight: normal;
+   position: relative;
+   left: 0px;
+   background: transparent;
+   padding: 10px;
+   border-spacing: 2px;
+   border-radius: 20px;
+   color: red;
+ }
+ table.output,tr.output, td.output
+ {
+   width: 500px;
+   background-color: #f9f9f9;
+   padding: 10px;
+   border-spacing: 2px;
+   border-radius: 20px;
+   border-color: #333;
+ }
+ td.outputdata
+ {
+   width: 500px;
+   background-color: #f9f9f9;
+   padding: 10px;
+   border-spacing: 2px;
+   border-radius: 20px;
+   border-color: #333;
+   
+ }
+ input, select, textarea {
+   border: 1px solid #ccc;
+   transition: border-color 0.3s ease;  /* Optional: smooth transition */
+}
+
+ 
