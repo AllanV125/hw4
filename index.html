@@ -9,10 +9,12 @@ Description:Patients Registration Form
 --->
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="HW3.CSS"> <!-- Link to CSS file -->
+  <link rel="stylesheet" href="HW4.CSS"> <!-- Link to CSS file -->
   <title>New Patient Registration Form Adara Medical Clinic</title>
 </head>
 <body>
+  <div class="page-wrapper">
+
   <header>
     <table width="90%">
           <tr>
@@ -28,8 +30,12 @@ Description:Patients Registration Form
                   </td>
           </tr>
       </table>
+      <div id="welcome-msg">
+        <span id="welcome1"></span>
+        <span id="welcome2"></span>
+      </div>
   </header>
-  <form id="signup-form" action="HW3thankyou.html">
+  <form id="signup-form" action="HW4thankyou.html">
 
 
    <center>
@@ -52,6 +58,7 @@ Description:Patients Registration Form
                 <span id="lnameError" class="error"></span>
             </div>
           </tr>
+          
               <tr>
               <td> <label for="minital">Middle Initial:</label></td>
               <td><input type="text" id="minital" name="minital" minlength="1" maxlength="1" 
@@ -284,8 +291,38 @@ Description:Patients Registration Form
     <h4>Please fill out all required fields</h4>
     <button id="close-alert">OK</button>
   </div>
-</div>                       
+</div> 
+<tr>
+  <td class="td1">
+      <label for="remember-me">Remember Me:</label>
+  </td>
+  <td>
+      <input
+          type="checkbox"
+          id="remember-me"
+          name="remember-me"
+          checked
+      />
+  </td>
+</tr>    
+</body>
+</form>
 
+<div class="iframe-container">
+       <iframe
+         src="https://www.uh.edu/"
+         title="W3Schools IFrame Demo"
+         frameborder="0"
+        allowfullscreen>
+       </iframe>
+    </div>
+  
+   </div>  <!-- /.page-wrapper -->
+       
+<center>
+  <span id="welcome1"></span>
+  <span id="welcome2"></span>
+</center>
 </table>
   <footer>
     <table width="90%"></table>
@@ -294,11 +331,10 @@ Description:Patients Registration Form
       <p>Adara Medical Clinic &copy; 2025</p>
       <p> All Rights Reserved</p>
   </footer>
-  <script src="HW3.JS"></script>
+  <script src="HW4.JS"></script>
               </table>
           </div>
       </center>
-  </form>
 </body>
 </html>
 
