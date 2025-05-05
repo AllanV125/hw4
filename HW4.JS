@@ -369,7 +369,7 @@ function validateEverything() {
     if (!validatePwordMatch()) valid = false;
     if (!validateRadio()) valid = false;
     if (valid) {
-        document.getElementById("submitBtn").disabled = false;
+        document.getElementById("submitBtn").disabled = true;
     } else {
         showAlert();
     }
@@ -543,7 +543,7 @@ document.getElementById('remember-me').addEventListener('change', function() {
 
 function debounce(func, delay) {
   let timeout;
-  return function(...args) {
+  return function (args) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), delay);
   };
@@ -565,3 +565,55 @@ document.getElementById('signup-form')
       deleteAllCookies();             
     }
   });
+    rangeInput.addEventListener('input', debounce(function() {
+        rangeOutput.textContent = this.value;
+      }, 300));
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + days*24*60*60*1000);
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/`;
+  }
+  function getCookie(name) {
+    const m = document.cookie.match(new RegExp('(^| )'+name+'=([^;]+)'));
+    return m ? decodeURIComponent(m[2]) : '';
+  }
+  function eraseCookie(name) {
+    document.cookie = name+'=; Max-Age=0; path=/';
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('today').textContent = new Date().toLocaleDateString();
+  
+    const fnameInput = document.getElementById('fname');
+    const welcomeEl  = document.getElementById('welcome1');
+    const notLink    = document.getElementById('not-user-link');
+    const rememberMe = document.getElementById('remember-me');
+    const form       = document.getElementById('signup-form');
+  
+    const firstName = getCookie('firstName');
+    if (firstName) {
+      welcomeEl.textContent = `Welcome back, ${firstName}!`;
+      fnameInput.value      = firstName;
+      notLink.style.display = 'inline';
+    } else {
+      welcomeEl.textContent = 'Welcome New User';
+    }
+  
+    notLink.addEventListener('click', e => {
+      e.preventDefault();
+      eraseCookie('firstName');
+      location.reload();
+    });
+  
+    form.addEventListener('submit', () => {
+      const name = fnameInput.value.trim();
+      if (rememberMe.checked && name) {
+        setCookie('firstName', name, 2); 
+      } else {
+        eraseCookie('firstName');
+      }
+    });
+  });
+  
+      
+    

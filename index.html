@@ -15,20 +15,66 @@ Description:Patients Registration Form
 <body>
   <div class="page-wrapper">
 
-  <header>
-    <table width="90%">
-          <tr>
-              <td valign="top" align="left" width="30%">
-                  <img src="Clinic Logo.jpg" alt="Logo of Adara Medical Clinic" width="250" height="200" id="Logo" class="center"/>
-               </div>
-              </td>
-              <td>
-                  <h1> Adara Medical Clinic</h1>
-              </td>
-              <td valign="bottom" align="right" width="80%">
-                      <p> Today's Date: <span id="today"> </span></p>
-                  </td>
-          </tr>
+    <header>
+      <img src="Clinic Logo.jpg" id="logo" alt="Clinic Logo" width="200">
+      <h1>Adara Medical Clinic</h1>
+      <div class="header-actions">
+        <p>Today's Date: <span id="today"></span></p>
+        <h2 id="welcome1">Welcome New User</h2>
+        <a href="#" id="not-user-link" style="display:none;">Not Jake? Start as a new user.</a>
+      </div>
+    </header>
+    <script>
+      function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + days*24*60*60*1000);
+        document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/`;
+      }
+      function getCookie(name) {
+        const m = document.cookie.match(new RegExp('(^| )'+name+'=([^;]+)'));
+        return m ? decodeURIComponent(m[2]) : '';
+      }
+      function eraseCookie(name) {
+        document.cookie = name+'=; Max-Age=0; path=/';
+      }
+    
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('today').textContent = new Date().toLocaleDateString();
+    
+        const fnameInput = document.getElementById('fname');
+        const welcomeEl  = document.getElementById('welcome1');
+        const notLink    = document.getElementById('not-user-link');
+        const rememberMe = document.getElementById('remember-me');
+        const form       = document.getElementById('signup-form');
+    
+        const firstName = getCookie('firstName');
+        if (firstName) {
+          welcomeEl.textContent = `Welcome back, ${firstName}!`;
+          fnameInput.value      = firstName;
+          notLink.style.display = 'inline';
+        } else {
+          welcomeEl.textContent = 'Welcome New User';
+        }
+    
+        notLink.addEventListener('click', e => {
+          e.preventDefault();
+          eraseCookie('firstName');
+          location.reload();
+        });
+    
+        form.addEventListener('submit', () => {
+          const name = fnameInput.value.trim();
+          if (rememberMe.checked && name) {
+            setCookie('firstName', name, 2); 
+          } else {
+            eraseCookie('firstName');
+          }
+        });
+      });
+    </script>
+    
+    
+           
       </table>
       <div id="welcome-msg">
         <span id="welcome1"></span>
@@ -43,7 +89,6 @@ Description:Patients Registration Form
               <table class="form-table">
           <tr>
               <th colspan="2"> <strong>Create Account</strong></th>
-          </tr>
          <tr>
            <td> <label for="fname">First Name:</label></td>
            <td><input type="text" id="fname" name="fname" placeholder="Allan" oninput="validateFname()" onblur="validateFname()" required></td>
@@ -266,7 +311,7 @@ Description:Patients Registration Form
                       <button type="button" id="Review" onclick="reviewInput()">Review</button>
                       <button type="button" id="validate" onclick="validateEverything()" style="font-family: 'pick a font';">Validate</button>
                       <button type="reset" id="resetBtn" onclick="Reset()">Reset</button>
-                      <input type="submit" id="submitBtn" value="Submit" disabled>
+                      <input type="submit" id="alertSubmitBtn" value="Submit" disabled>
                     </td>
                   </tr>
                   <div id="review-output"></div>
@@ -287,8 +332,7 @@ Description:Patients Registration Form
     <div style="text-align: center; margin-top: 20px;">
         <input type="submit" id="submitBtn" value="Submit" disabled>
       </div>
-    </form>
-    <h4>Please fill out all required fields</h4>
+    <h4 style="color: red; font-weight: bold; text-align: center;">Please fill out all required fields</h4>
     <button id="close-alert">OK</button>
   </div>
 </div> 
@@ -301,31 +345,23 @@ Description:Patients Registration Form
           type="checkbox"
           id="remember-me"
           name="remember-me"
-          checked
-      />
-  </td>
+          checked>
+      </form>
+    
 </tr>    
-</body>
-</form>
-
-<div class="iframe-container">
-  <iframe
-    id="sviframe"
-    src="https://www.tmc.edu/"
-    title="TMC"
-    frameborder="0"
-    width="100%"
-    height="400px"
-    allowfullscreen>
-  </iframe>
-</div>
-
        
 <center>
   <span id="welcome1"></span>
   <span id="welcome2"></span>
 </center>
 </table>
+<section class="iframe-container">
+  <iframe
+    src="https://www.tmc.edu/"
+    width="100%" height="400"
+    frameborder="0" allowfullscreen>
+  </iframe>
+</section>
   <footer>
     <table width="90%"></table>
     <td valign="top" align="left" width="30%"> </td>
