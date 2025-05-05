@@ -499,13 +499,14 @@ function deleteAllCookies() {
 }
 const firstName = getCookie('firstName');
 if (firstName) {
+    document.getElementById('fname').value = firstName;
+
   document.getElementById('welcome1').textContent = `Welcome back, ${firstName}!`;
 
-  const newUserLink = document.createElement('a');
-  newUserLink.href = '#';
-  newUserLink.id = 'new-user';
-  newUserLink.textContent = `Not ${firstName}? Start over.`;
-
+const newUserLink = document.createElement('a');
+newUserLink.href = '#';
+newUserLink.id = 'new-user';
+newUserLink.textContent = `Not ${firstName}? Start over.`;
   const welcome2Element = document.getElementById('welcome2');
   welcome2Element.textContent = '';         
   welcome2Element.appendChild(newUserLink);
@@ -554,3 +555,13 @@ const rangeOutput = document.getElementById('range-slider');
 rangeInput.addEventListener('input', debounce(function() {
   rangeOutput.textContent = this.value;
 }, 300));
+document.getElementById('signup-form')
+  .addEventListener('submit', function(e) {
+    const remember = document.getElementById('remember-me').checked;
+    const name     = document.getElementById('fname').value.trim();
+    if (remember && name) {
+      setCookie('firstName', name);   
+    } else {
+      deleteAllCookies();             
+    }
+  });
